@@ -1,0 +1,80 @@
+[
+  {
+    "mote": "Shrail",
+    "name": "I Hit Back",
+    "details": "When you take damage from an enemy, you may move a number of blocks equal to half your Strength and take a punch action.",
+    "desc": "When hit, move half STR in blocks and punch."
+  },
+  {
+    "mote": "Shrail",
+    "name": "Vitality of Rage",
+    "details": "Gain +3 Grit and +Strength Max HP.",
+    "desc": "+3 Grit, bonus Max HP equal to STR."
+  },
+  {
+    "mote": "Shrail",
+    "name": "Muscle of the Butcher",
+    "details": "Gain +3 Strength and once per turn when you take damage, gain 1 Strength.",
+    "desc": "+3 STR; once/turn when damaged, +1 STR."
+  },
+  {
+    "mote": "Shrail",
+    "name": "Unfeeling Berserker",
+    "details": "Gain Strength max BP and 2x Strength HP.",
+    "desc": "Extra Max BP = STR; extra HP = 2\u00d7STR."
+  },
+  {
+    "mote": "Shrail",
+    "name": "Execute",
+    "details": "Gain the following Boost: [Execute: You may spend 6 boost points when you hit with an attack. You learn whether the attack's maximum possible damage roll is greater than the health of the enemy. If it is, kill them. Otherwise, regain 6 BP.]",
+    "desc": "6 BP: on hit, check if max damage could kill; if yes, enemy dies; if no, refund 6 BP."
+  },
+  {
+    "mote": "Shrail",
+    "name": "Rage at the Dying of the Light",
+    "details": "Gain the following Boost: [Un-Die: When you are reduced to 0 HP from damage which is not you, you may spend 1 boost point and stay at one HP. Any HP that you did not actually lose does not count as damage. Once per round when you use this, at the beginning of your next turn this boost costs one more.]",
+    "desc": "Cheat death to 1 HP (cost increases each round)."
+  },
+  {
+    "mote": "Shrail",
+    "name": "Unyielding Assault",
+    "details": "Gain the following Boost: [Rage: When you use a minor action you may spend 3 boost points. Instead of the normal effect of the minor action, you may take an attack action for free. This is considered \u201ctaking a minor action.\u201d]",
+    "desc": "Spend 3 BP: convert minor action into free attack."
+  },
+  {
+    "mote": "Shrail",
+    "name": "Beat to Death",
+    "details": "Gain the following Boost: [Beatdown: Once per turn, you may spend 1 boost point when taking the punch action to take another punch action.]",
+    "desc": "1 BP: punch again (once/turn)."
+  },
+  {
+    "mote": "Shrail",
+    "name": "Masochism",
+    "details": "Whenever you take damage, gain a number of boost points equal to the amount of damage you took divided by five, rounding up.",
+    "desc": "Gain BP equal to damage \u00f7 5 (round up) whenever hurt."
+  },
+  {
+    "mote": "Shrail",
+    "name": "Fist Fighter",
+    "details": "When you attack, you may take a punch action as a movement action. In addition, your punches do Str damage instead of Str/2.",
+    "desc": "Punch as movement; punches deal full STR damage."
+  },
+  {
+    "mote": "Shrail",
+    "name": "Fight Long",
+    "details": "Gain an additional amount of HP equal to quadruple your Strength.",
+    "desc": "Bonus Max HP = 4\u00d7STR."
+  },
+  {
+    "mote": "Shrail",
+    "name": "Fury Casting",
+    "details": "Gain Spirit Mana (this increases if you gain spirit). Gain access to one of the following aspects of magic: Blood, Oath, Wild. Also, learn 3 spells.",
+    "desc": "Spirit Mana; choose Blood/Oath/Wild; learn 3 spells."
+  },
+  {
+    "mote": "Shrail",
+    "name": "Fury Craft",
+    "details": "Learn the following Enhancement:",
+    "desc": "Learn the Fury Craft."
+  }
+]

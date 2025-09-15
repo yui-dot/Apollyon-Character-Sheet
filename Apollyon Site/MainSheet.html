@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Apollyon Character Sheet</title>
+  <!-- Tailwind for rapid, consistent styling -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Inter font for clean UI typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--ink:#0f172a;--muted:#6b7280;--ring:#22d3ee;--card:#0b1324;--panel:#0e172c;--panel-2:#111827;--accent:#22d3ee;--surface:#0b1220;}
+    html,body{height:100%}
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif;background:linear-gradient(180deg,#0b1220 0%,#0b1324 100%);color:#e5e7eb}
+    .sheet{max-width:1400px}
+    .card{background:rgba(17,24,39,.75);backdrop-filter: blur(6px); border:1px solid rgba(255,255,255,.06)}
+    .card h3{letter-spacing:.02em}
+    .cell{background:#1e293b;border:1px solid rgba(255,255,255,.12)}
+    .cell input, .cell select, .cell textarea{background:transparent;outline:none}
+    input[readonly]{opacity:.8}
+    .title{background:linear-gradient(90deg, rgba(34,211,238,0.1), rgba(56,189,248,0.1)); border:1px solid rgba(34,211,238,.25)}
+    .ring:focus{box-shadow:0 0 0 3px rgba(34,211,238,.35)}
+    .grid-border > *{border-color:rgba(255,255,255,.06)}
+    .subtle{color:#a1a1aa}
+    
+    /* Mote Color Themes */
+    .mote-theme-shrail{background:linear-gradient(135deg,rgba(255, 0, 0, 0.25),rgba(255, 0, 0, 0.15));border-color:rgba(255, 0, 0, 0.6);}
+    .mote-theme-pelian{background:linear-gradient(135deg,rgba(1, 102, 255,0.25),rgba(1, 102, 255,0.15));border-color:rgba(1, 102, 255, 0.8);}
+    .mote-theme-isheilah{background:linear-gradient(135deg,rgba(255, 251, 31, 0.25),rgba(255, 251, 31,0.15));border-color:rgba(255, 251, 31,0.6);}
+    .mote-theme-numo{background:linear-gradient(135deg,rgba(255, 145, 0, 0.25),rgba(255, 145, 0,0.15));border-color:rgba(255, 145, 0,0.6);}
+    .mote-theme-etill{background:linear-gradient(135deg,rgba(0, 217, 255, 0.25),rgba(0, 217, 255,0.15));border-color:rgba(0, 217, 255,0.6);}
+    .mote-theme-ursa{background:linear-gradient(135deg,rgba(47, 129, 0, 0.25),rgba(47, 129, 0,0.15));border-color:rgba(47, 129, 0,0.6);}
+    .mote-theme-lichor{background:linear-gradient(135deg,rgba(158, 0, 0, 0.25),rgba(158, 0, 0,0.15));border-color:rgba(158, 0, 0,0.6);}
+    .mote-theme-dawel{background:linear-gradient(135deg,rgba(75, 75, 75, 0.25),rgba(75, 75, 75,0.15));border-color:rgba(75, 75, 75,0.6);}
+    .mote-theme-anavani{background:linear-gradient(135deg,rgba(128, 0, 128, 0.25),rgba(128, 0, 128,0.15));border-color:rgba(128, 0, 128,0.6);}
+    .mote-theme-morae{background:linear-gradient(135deg,rgba(255, 105, 180, 0.25),rgba(255, 105, 180,0.15));border-color:rgba(255, 105, 180,0.6);}
+    .mote-theme-kative{background:linear-gradient(135deg,rgba(255, 215, 0, 0.25),rgba(255, 215, 0,0.15));border-color:rgba(255, 215, 0,0.6);}
+    .mote-theme-grisha{background:linear-gradient(135deg,rgba(75, 0, 130, 0.25),rgba(75, 0, 130,0.15));border-color:rgba(75, 0, 130,0.6);}
+    .mote-theme-default{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);}
+    
+    /* Mote-themed input/textarea backgrounds */
+    .mote-input-shrail{background:rgba(255, 0, 0, 0.15) !important;border-color:rgba(255, 0, 0, 0.4) !important;}
+    .mote-input-pelian{background:rgba(1, 102, 255,0.15) !important;border-color:rgba(1, 102, 255, 0.4) !important;}
+    .mote-input-isheilah{background:rgba(255, 251, 31, 0.15) !important;border-color:rgba(255, 251, 31,0.4) !important;}
+    .mote-input-numo{background:rgba(255, 145, 0, 0.15) !important;border-color:rgba(255, 145, 0,0.4) !important;}
+    .mote-input-etill{background:rgba(0, 217, 255, 0.15) !important;border-color:rgba(0, 217, 255,0.4) !important;}
+    .mote-input-ursa{background:rgba(47, 129, 0, 0.15) !important;border-color:rgba(47, 129, 0,0.4) !important;}
+    .mote-input-lichor{background:rgba(158, 0, 0, 0.15) !important;border-color:rgba(158, 0, 0,0.4) !important;}
+    .mote-input-dawel{background:rgba(75, 75, 75, 0.15) !important;border-color:rgba(75, 75, 75,0.4) !important;}
+    .mote-input-anavani{background:rgba(128, 0, 128, 0.15) !important;border-color:rgba(128, 0, 128,0.4) !important;}
+    .mote-input-morae{background:rgba(255, 105, 180, 0.15) !important;border-color:rgba(255, 105, 180,0.4) !important;}
+    .mote-input-kative{background:rgba(255, 215, 0, 0.15) !important;border-color:rgba(255, 215, 0,0.4) !important;}
+    .mote-input-grisha{background:rgba(75, 0, 130, 0.15) !important;border-color:rgba(75, 0, 130,0.4) !important;}
+    .mote-input-default{background:rgba(255,255,255,0.08) !important;border-color:rgba(255,255,255,0.15) !important;}
+    
+    /* Ensure textarea backgrounds are properly contained within mote theme cards */
+    .mote-theme-default textarea{background:rgba(255,255,255,0.08) !important;border-color:rgba(255,255,255,0.15) !important;}
+    .mote-theme-shrail textarea{background:rgba(255, 0, 0, 0.15) !important;border-color:rgba(255, 0, 0, 0.4) !important;}
+    .mote-theme-pelian textarea{background:rgba(1, 102, 255,0.15) !important;border-color:rgba(1, 102, 255, 0.4) !important;}
+    .mote-theme-isheilah textarea{background:rgba(255, 251, 31, 0.15) !important;border-color:rgba(255, 251, 31,0.4) !important;}
+    .mote-theme-numo textarea{background:rgba(255, 145, 0, 0.15) !important;border-color:rgba(255, 145, 0,0.4) !important;}
+    .mote-theme-etill textarea{background:rgba(0, 217, 255, 0.15) !important;border-color:rgba(0, 217, 255,0.4) !important;}
+    .mote-theme-ursa textarea{background:rgba(47, 129, 0, 0.15) !important;border-color:rgba(47, 129, 0,0.4) !important;}
+    .mote-theme-lichor textarea{background:rgba(158, 0, 0, 0.15) !important;border-color:rgba(158, 0, 0,0.4) !important;}
+    .mote-theme-dawel textarea{background:rgba(75, 75, 75, 0.15) !important;border-color:rgba(75, 75, 75,0.4) !important;}
+    .mote-theme-anavani textarea{background:rgba(128, 0, 128, 0.15) !important;border-color:rgba(128, 0, 128,0.4) !important;}
+    .mote-theme-morae textarea{background:rgba(255, 105, 180, 0.15) !important;border-color:rgba(255, 105, 180,0.4) !important;}
+    .mote-theme-kative textarea{background:rgba(255, 215, 0, 0.15) !important;border-color:rgba(255, 215, 0,0.4) !important;}
+    .mote-theme-grisha textarea{background:rgba(75, 0, 130, 0.15) !important;border-color:rgba(75, 0, 130,0.4) !important;}
+    
+    /* Mote-themed select dropdown options */
+    .mote-input-shrail option{background:rgba(255, 0, 0, 0.9);color:white;}
+    .mote-input-pelian option{background:rgba(1, 102, 255, 0.9);color:white;}
+    .mote-input-isheilah option{background:rgba(255, 251, 31, 0.9);color:black;}
+    .mote-input-numo option{background:rgba(255, 145, 0, 0.9);color:white;}
+    .mote-input-etill option{background:rgba(0, 217, 255, 0.9);color:white;}
+    .mote-input-ursa option{background:rgba(47, 129, 0, 0.9);color:white;}
+    .mote-input-lichor option{background:rgba(158, 0, 0, 0.9);color:white;}
+    .mote-input-dawel option{background:rgba(75, 75, 75, 0.9);color:white;}
+    .mote-input-anavani option{background:rgba(128, 0, 128, 0.9);color:white;}
+    .mote-input-morae option{background:rgba(255, 105, 180, 0.9);color:white;}
+    .mote-input-kative option{background:rgba(255, 215, 0, 0.9);color:black;}
+    .mote-input-grisha option{background:rgba(75, 0, 130, 0.9);color:white;}
+    .mote-input-default option{background:rgba(255,255,255,0.9);color:black;}
+    
+    @media print {
+      body{background:white;color:black}
+      .card{background:white;border:1px solid #d1d5db}
+      .cell{background:white;border:1px solid #d1d5db}
+      .no-print{display:none}
+    }
+  </style>
+</head>
+<body>
+  <main class="sheet mx-auto p-6 sm:p-8 lg:p-10">
+    <!-- Header / Identity Row -->
+    <section class="card rounded-2xl p-6 mb-6">
+      <div class="flex flex-col gap-4">
+        <div class="flex flex-wrap gap-4 items-end">
+          <div class="flex-1 min-w-[260px]">
+            <label class="text-xs uppercase tracking-wider subtle">Character Name</label>
+            <input id="charName" class="title mt-1 w-full rounded-xl px-4 py-2.5 text-lg ring ring-0 focus:outline-none ring-transparent focus:ring-2 focus:ring-cyan-300" placeholder="Enter name" />
+          </div>
+          <div class="w-32">
+            <label class="text-xs uppercase tracking-wider subtle">Level</label>
+            <input id="level" type="number" min="0" class="cell mt-1 w-full rounded-xl px-3 py-2 ring-0 ring-transparent focus:ring-2 focus:ring-cyan-300" placeholder="1" />
+          </div>
+          <div class="w-40">
+            <label class="text-xs uppercase tracking-wider subtle">EXP</label>
+            <input id="exp" type="number" min="0" class="cell mt-1 w-full rounded-xl px-3 py-2 ring-0 ring-transparent focus:ring-2 focus:ring-cyan-300" placeholder="0" />
+          </div>
+          <div class="flex-1 min-w-[220px]">
+            <label class="text-xs uppercase tracking-wider subtle">Race</label>
+            <input id="race" class="cell mt-1 w-full rounded-xl px-3 py-2 ring-0 ring-transparent focus:ring-2 focus:ring-cyan-300" placeholder="Race" />
+          </div>
+          <div class="ml-auto flex gap-2 no-print">
+            <button id="exportBtn" class="rounded-xl px-4 py-2.5 bg-cyan-500/20 border border-cyan-300/30 hover:bg-cyan-500/30">Export</button>
+            <button id="importBtn" class="rounded-xl px-4 py-2.5 bg-cyan-500/20 border border-cyan-300/30 hover:bg-cyan-500/30">Import</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Attributes row -->
+    <section class="grid lg:grid-cols-2 gap-6">
+      <!-- Core Attributes -->
+      <div class="card rounded-2xl p-6">
+        <h3 class="text-lg font-semibold mb-4">Attributes</h3>
+        <table class="w-full text-sm">
+          <thead class="text-left subtle">
+            <tr>
+              <th class="pb-2 w-20">Attribute</th>
+              <th class="pb-2 w-12">Base</th>
+              <th class="pb-2 w-12">Mod</th>
+              <th class="pb-2 w-12">Temp</th>
+              <th class="pb-2 w-12">Level</th>
+              <th class="pb-2 w-12">Total</th>
+            </tr>
+          </thead>
+          <tbody id="coreAttributes"><!-- populated by script.js --></tbody>
+        </table>
+      </div>
+
+      <!-- Calculated Attributes -->
+      <div class="card rounded-2xl p-6">
+        <h3 class="text-lg font-semibold mb-4">Calculated Attributes</h3>
+        <table class="w-full text-sm align-middle">
+          <thead class="text-left subtle">
+            <tr>
+              <th class="pb-2 w-16">Attribute</th>
+              <th class="pb-2 w-10">Base</th>
+              <th class="pb-2 w-10">Mod</th>
+              <th class="pb-2 w-10">Temp</th>
+              <th class="pb-2 w-10">× Mult</th>
+              <th class="pb-2 w-10">End</th>
+              <th class="pb-2 w-12">Current</th>
+            </tr>
+          </thead>
+          <tbody id="calcAttributes"><!-- populated by script.js --></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Inventory & Motes -->
+    <section class="grid xl:grid-cols-3 gap-6 mt-6">
+      <!-- Inventory -->
+      <div class="xl:col-span-1 card rounded-2xl p-6">
+        <h3 class="text-lg font-semibold mb-4">Inventory</h3>
+        <div class="space-y-3" id="inventory">
+          <!-- Inventory items will be added here dynamically -->
+        </div>
+        <button id="addInventoryItem" class="mt-4 rounded-xl px-4 py-2.5 bg-cyan-500/20 border border-cyan-300/30 hover:bg-cyan-500/30" onclick="addInventoryItem()">Add Item</button>
+      </div>
+
+      <!-- Motes -->
+      <div class="xl:col-span-2 grid md:grid-cols-3 gap-6">
+        <div class="card rounded-2xl p-6" id="mote-1"><!-- built by script.js --></div>
+        <div class="card rounded-2xl p-6" id="mote-2"><!-- built by script.js --></div>
+        <div class="card rounded-2xl p-6" id="mote-3"><!-- built by script.js --></div>
+      </div>
+    </section>
+
+    <!-- Enhancements, Mastery & Mind -->
+    <section class="grid lg:grid-cols-3 gap-6 mt-6">
+      <!-- Known Enhancements -->
+      <div class="card rounded-2xl p-6">
+        <h3 class="text-lg font-semibold mb-4">Known Enhancements</h3>
+        <div id="enhancements" class="space-y-3">
+          <!-- Enhancement items will be added here dynamically -->
+        </div>
+        <button id="addEnhancement" class="mt-4 rounded-xl px-4 py-2.5 bg-cyan-500/20 border border-cyan-300/30 hover:bg-cyan-500/30" onclick="addEnhancement()">Add Enhancement</button>
+      </div>
+
+      <!-- Mastery -->
+      <div class="card rounded-2xl p-6">
+        <div class="flex items-center gap-3 mb-4">
+          <h3 class="text-lg font-semibold">Mastery</h3>
+          <input id="masteryValue" type="number" min="0" class="w-16 rounded-lg px-2 py-1 text-center cell ring-0 ring-transparent focus:ring-2 focus:ring-cyan-300" placeholder="0" value="0" />
+        </div>
+        <div id="masteries" class="space-y-3">
+          <!-- Mastery items will be added here dynamically -->
+        </div>
+        <button id="addMastery" class="mt-4 rounded-xl px-4 py-2.5 bg-cyan-500/20 border border-cyan-300/30 hover:bg-cyan-500/30" onclick="addMastery()">Add Mastery</button>
+      </div>
+
+      <!-- Mind Alterations & Breaks -->
+      <div class="lg:col-span-2 space-y-6">
+        <div class="card rounded-2xl p-6">
+          <h3 class="text-lg font-semibold mb-4">Mind Alterations</h3>
+          <!--3 fillable mind alterations with name and then description box. Each looks visually sepearted by a gray line-->
+          <div id="mindAlterations" class="space-y-3">
+            <!-- Mind alteration rows will be populated by script.js -->
+          </div>
+        </div>
+        <div class="card rounded-2xl p-6">
+          <h3 class="text-lg font-semibold mb-4">Mind Breaks</h3>
+          <!--A box name and description. When filled, it calls a script to add another one. When the description box and name box are empty and the name box and description box of the one above are empty, then it gets removed-->
+          <div id="mindBreaks" class="space-y-3">
+            <!-- Mind break cards will be added here dynamically -->
+          </div>
+          <button id="addMindBreak" class="mt-4 rounded-xl px-4 py-2.5 bg-cyan-500/20 border border-cyan-300/30 hover:bg-cyan-500/30" onclick="addMindBreak()">Add Mind Break</button>
+        </div>
+      </div>
+    </section>
+
+    <p class="text-xs subtle mt-6">End = (Base + Mod + Temp) × Multiplier, rounded up.</p>
+  </main>
+
+  <!-- Application logic -->
+  <script defer src="script.js"></script>
+</body>
+</html>
