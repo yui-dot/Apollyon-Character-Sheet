@@ -120,7 +120,7 @@
     {
       "mote": "Shrail",
       "name": "Fury Craft",
-      "details": "Learn the following Enhancement:",
+      "details": "Learn the following Enhancement: When you attack, as a boost you may spend up to 2 BP, increasing the damage the attack does by 5 for each point. If the creator of this item is wielding it, you may instead spend up to 4 BP.",
       "desc": "Learn the Fury Craft."
     },
     {
@@ -198,7 +198,7 @@
     {
         "mote": "Pelian",
         "name": "Zeal Craft",
-        "details": "Learn the following Enhancement:",
+        "details": "Learn the following Enhancement: Gain 0.3xHP HP rounding up. If you are the creator of this item, after you take damage and your HP is below half, you may spend 4 boost points and regain 1/4 your max HP rounding up. Once you use this ability, it may not be used until the beginning of your next turn.",
         "desc": "Learn the Zeal Craft."
     },
     {
@@ -276,7 +276,7 @@
       {
         "mote": "Isheilah",
         "name": "Guile Craft",
-        "details": "Learn the following Enhancement:",
+        "details": "You may always act as if the attack action triggers Cut Down, even with melee weapons. This reaction triggers after the attack resolves. If the creator of this item is wielding it, Whenever you make a Cut Down reaction, it does double damage and the damage it deals cannot be reduced. ",
         "desc": "Learn the Guile Craft."
       },
       {
@@ -354,7 +354,7 @@
       {
         "mote": "Numo",
         "name": "Memory Craft",
-        "details": "Learn the following Enhancement:",
+        "details": "Learn the following Enhancement: Once per combat, at the start of your turn regain a number of boost points equal to your Spirit. If the creator of this item is wielding it, instead regain all your boost points.",
         "desc": "Learn the Memory Craft."
       },
       {
@@ -432,7 +432,7 @@
       {
         "mote": "Etill",
         "name": "Flow Craft",
-        "details": "Learn the following Enhancement:",
+        "details": "Learn the following Enhancement: You may substitute 2 minor actions for a major action, and vice versa. You may also substitute 2 movement actions for a minor action, or 1 minor action for a movement action. This substitution may be done before or after any of your actions. If the creator of this item is wielding it, gain a movement action.",
         "desc": "Learn the Flow Craft."
       },
       {
@@ -510,7 +510,7 @@
       {
         "mote": "Ursa",
         "name": "Dream Craft",
-        "details": "Learn the following Enhancement:",
+        "details": "Learn the following Enhancement: Gain 10 boost points. If the creator of this item is wielding it, instead of gaining boost points, gain 5 spirit.",
         "desc": "Learn the Dream Craft."
       },
       {
@@ -588,7 +588,7 @@
       {
         "mote": "Lichor",
         "name": "Blood Craft",
-        "details": "Learn the following Enhancement:",
+        "details": "Learn the following Enhancement: As a minor action, heal equal to twice your DR. If the creator of this item is wielding it, instead heal 4 times your DR.",
         "desc": "Learn the Blood Craft."
       },
       {
@@ -666,7 +666,7 @@
       {
         "mote": "Dawel",
         "name": "Silence Craft",
-        "details": "Learn the following Enhancement:",
+        "details": "Learn the following Enhancement: When someone glances against you, you regain 3 boost points. If the creator of this item is wielding it, when someone glances against you, you regain an additional 3 boost points.",
         "desc": "Learn the Silence Craft."
       },
       {
@@ -744,7 +744,7 @@
       {
         "mote": "Grisha",
         "name": "Ruin Craft",
-        "details": "Learn the following Enhancement:",
+        "details": "Learn the following Enhancement: When you hit enemies, you may ignore their DR. If the creator of this item is wielding it, when you hit someone you reduce their grit by 2 in addition.",
         "desc": "Learn the Ruin Craft."
       },
       {
@@ -822,7 +822,7 @@
       {
         "mote": "Anavani",
         "name": "Ascendance Craft",
-        "details": "Learn the following Enhancement:",
+        "details": "Learn the following Enhancement: Hostile creatures within 15 blocks move at 1/2 speed. If the creator of this item is wielding it, in addition to the above effect, enemies within 6 blocks reduce their Agility by half (rounding up, minimum of 1).",
         "desc": "Learn the Ascendance Craft."
       },
       {
@@ -900,7 +900,7 @@
       {
         "mote": "Kative",
         "name": "Artifice Craft",
-        "details": "Learn the following Enhancement:",
+        "details": "Learn the following Enhancement: When creating this item, you may add any other Mote Craft enhancement to this item, without the text which empowers the creator of the item. If the creator of this item is wielding it, you may add a second Mote Craft enhancement in the same way as the first without counting against maximum enhancements on this item or taking an additional downtime.",
         "desc": "Learn the Artifice Craft."
       },
       {
@@ -978,7 +978,7 @@
       {
         "mote": "Morae",
         "name": "Fate Craft",
-        "details": "Learn the following Enhancement:",
+        "details": "Learn the following Enhancement: If you would hit with an attack, you instead crit. If the creator of this item is wielding it, then if they would glance, they instead hit once per round.",
         "desc": "Learn the Fate Craft."
       }
 
