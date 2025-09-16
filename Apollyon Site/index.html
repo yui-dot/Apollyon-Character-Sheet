@@ -86,7 +86,53 @@
     .mote-input-default option{background:rgba(255,255,255,0.9);color:black;}
     
     @media print {
-      body{background:white;color:black}
+      body {
+    -webkit-animation: colorchange 30s infinite; 
+    animation: colorchange 15s infinite;
+}
+@-webkit-keyframes colorchange {
+     0%  {background: #33fff3;}
+     25%  {background: #78281f;}
+     50%  {background: #34e985;}
+     75%  {background: #ff33a3;}
+     100%  {background: #d3A6cf;}
+}
+@keyframes colorchange {
+     0%  {background: #33fff3;}
+     25%  {background: #da3220;}
+     50%  {background: #34e985;}
+     75%  {background: #ff33a3;}
+     100%  {background: #d3A6cf;}
+}  
+
+     {
+            color: white;
+            border-radius: 4px;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+        }
+
+        .button {
+		 font-size: 26px;
+            background: rgb(500, 184, 65); 
+			 border-radius: 20px
+        }
+.css-input {
+     padding: 5px;
+     font-size: 16px;
+     border-width: 2px;
+     border-color: #d70e0e;
+     background-color: #c6e2ff;
+	     -webkit-animation: colorchange 30s infinite; 
+    animation: colorchange 5s infinite;
+     color: #000000;
+     border-style: dotted;
+     border-radius: 44px;
+     box-shadow: 0px 0px 5px rgba(155,52,167,.75);
+     text-shadow: 0px 0px 5px rgba(173,55,55,.75);
+}
+ .css-input:focus {
+     outline:none;
+}
       .card{background:white;border:1px solid #d1d5db}
       .cell{background:white;border:1px solid #d1d5db}
       .no-print{display:none}
